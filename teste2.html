@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Alice Colombo | Biomedicina Estética</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #a84956;
+            --primary: #1a1a1a;
+            --bg-light: #f5f1ed;
+            --bg-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --border-light: #e8e8e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #fff;
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            margin-top: 80px;
+            background: linear-gradient(135deg, #f5f1ed 0%, #ede6dd 100%);
+        }
+
+        .hero-content {
+            padding: 4rem;
+            padding-right: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            letter-spacing: -1.5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 90%;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1.2rem 4rem;
+            background: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: right 0.4s ease;
+            z-index: -1;
+        }
+
+        .hero-cta:hover::before {
+            right: 0;
+        }
+
+        .hero-cta:hover {
+            color: var(--accent-color);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: scaleIn 1s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(1.05);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* PROCEDURES SECTION */
+        .procedures {
+            background: var(--bg-white);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title p {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .procedures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .procedure-card {
+            background: var(--bg-light);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .procedure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            background: #e8e8e8;
+            flex-shrink: 0;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .procedure-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.3px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-weight: 400;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .card-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* BEFORE AND AFTER SECTION */
+        .before-after {
+            background: var(--bg-white);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .before-after-card {
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .before-after-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 400px;
+            margin-bottom: 2rem;
+            background: #e8e8e8;
+            flex-shrink: 0;
+        }
+
+        .before-after-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .toggle-btn {
+            padding: 0.95rem 2.8rem;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .toggle-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .before-after-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .before-after-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 400;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* TREATMENT AREAS */
+        .treatment-areas {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .treatment-areas h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .area-card {
+            padding: 2rem;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .area-card:hover {
+            border-left-color: var(--accent-color);
+            padding-left: 2.5rem;
+        }
+
+        .area-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .area-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 3rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            border: none;
+            background: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            padding-right: 3rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .modal-section p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .modal-section ul li {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .modal-section ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .modal-section-divider {
+            border-top: 1px solid var(--border-light);
+            margin: 2rem 0;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: var(--primary);
+            color: var(--text-dark);
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .contact-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .detail-item i {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            min-width: 50px;
+            text-align: center;
+            padding-top: 0.3rem;
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-item strong {
+            color: #fff;
+            display: block;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-item span {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #ccc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: var(--bg-light);
+        }
+
+        .form-submit {
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            font-size: 0.95rem;
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        .form-submit:hover {
+            background: var(--primary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                margin-top: 100px;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image {
+                min-height: 400px;
+            }
+
+            .procedures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .treatment-areas h2 {
+                font-size: 1.8rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 2rem;
+                max-height: 95vh;
+            }
+
+            .modal-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                DRA. ALICE COLOMBO
+                <div class="logo-subtitle">BIOMEDICINA ESTÉTICA</div>
+            </div>
+            <nav>
+                <a href="#procedimentos">Procedimentos</a>
+                <a href="#antes-depois">Resultados</a>
+                <a href="#areas">Áreas de Tratamento</a>
+                <a href="#contato">Contato</a>
+            </nav>
+            <div class="social-icons">
+                <a href="https://wa.me/SEUNUMERO" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/dra.alicecolombo" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="accent">BELEZA</span>
+                <br>SENSIBILIDADE
+                <br><span class="accent">PROPÓSITO</span>
+            </h1>
+            <p>Atuação personalizada que une técnica, sensibilidade e ciência para cuidar do seu rosto, corpo e região íntima com segurança e propósito.</p>
+            <a href="#contato" class="hero-cta">AGENDAR CONSULTA</a>
+        </div>
+        <div class="hero-image">
+            <img src="alice.jpg" alt="Dra. Alice">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about reveal">
+        <h2>Sobre Mim</h2>
+        <p>Biomédica, pós-graduanda em Biomedicina Estética (IBECO), com capacitação teórico-prática em procedimentos faciais e corporais, incluindo toxina botulínica, preenchimentos, bioestimuladores, PEIM, intradermoterapia, microagulhamento, gerenciamento de pele e peelings químicos. Possuo vivência em avaliação estética, elaboração de protocolos personalizados, biossegurança e atendimento humanizado. Perfil organizado, ética profissional, foco em resultados e na segurança do paciente, com diferencial em comunicação e experiência do cliente.</p>
+    </section>
+
+    <!-- PROCEDURES -->
+    <section class="procedures" id="procedimentos">
+        <div class="section-title reveal">
+            <h2>Procedimentos</h2>
+            <p>Técnicas avançadas para sua beleza e bem-estar</p>
+        </div>
+        <div class="procedures-grid">
+
+            <div class="procedure-card reveal">
+                <div class="card-image">
+                    <img src="colageno.jpg" alt="Bioestímulo">
+                </div>
+                <div class="card-content">
+                    <h3>Bioestímulo de Colágeno</h3>
+                    <p>Estimulação natural da produção de colágeno para pele mais firme.</p>
+                    <button class="card-btn" data-procedure="bioeestimulo">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="procedure-card reveal">
+                <div class="card-image">
+                    <img src="micro.jpg" alt="Redensificação">
+                </div>
+                <div class="card-content">
+                    <h3>Microagulhamento</h3>
+                    <p>Estimular a produção natural de colágeno e elastina através de microperfurações na pele, visando o rejuvenescimento, redução de rugas, linhas de expressão, cicatrizes de acne, manchas e poros dilatados</p>
+                    <button class="card-btn" data-procedure="redensificacao">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="procedure-card reveal">
+                <div class="card-image">
+                    <img src="intradermoterapia.jpg" alt="Toxina Botulínica">
+                </div>
+                <div class="card-content">
+                    <h3>Intradermoterapia</h3>
+                    <p>A intradermoterapia é uma técnica inovadora no campo da medicina estética e terapêutica, a qual vem ganhando destaque devido à sua eficácia e versatilidade.</p>
+                    <button class="card-btn" data-procedure="botox">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="procedure-card reveal">
+                <div class="card-image">
+                    <img src="preenchimentos.jpg" alt="Preenchimento">
+                </div>
+                <div class="card-content">
+                    <h3>Preenchimentos</h3>
+                    <p>Restauração de volume e definição para um rosto mais jovem e harmonioso.</p>
+                    <button class="card-btn" data-procedure="preenchimento">Saiba Mais</button>
+                </div>
+            </div>
+
+    
+
+    </section>
+
+    <!-- BEFORE AND AFTER SECTION -->
+    <section class="before-after" id="antes-depois">
+        <div class="section-title reveal">
+            <h2>Resultados Reais</h2>
+            <p>Clique para ver as transformações de nossos clientes</p>
+        </div>
+        <div class="before-after-grid">
+            <div class="before-after-card reveal">
+                <div class="before-after-container">
+                    <div class="image-label">ANTES</div>
+                    <img class="before-after-image" src="procedimentos/celuliteantes.jpg" alt="Antes" data-before="procedimentos/celuliteantes.jpg" data-after="procedimentos/celulitedepois.jpg">
+                </div>
+                <h3>Celulite</h3>
+                <p>Tratamento com subcisao de celulite (PEFE)</p>
+                <button class="toggle-btn">Ver Depois</button>
+            </div>
+
+            <div class="before-after-card reveal">
+                <div class="before-after-container">
+                    <div class="image-label">ANTES</div>
+                    <img class="before-after-image" src="procedimentos/estriasantes.jpg" alt="Antes" data-before="procedimentos/estriasantes.jpg" data-after="procedimentos/estriasdepois.jpg">
+                </div>
+                <h3>Estrias</h3>
+                <p>Tratamento para estrias brancas</p>
+                <button class="toggle-btn">Ver Depois</button>
+            </div>
+
+            <div class="before-after-card reveal">
+                <div class="before-after-container">
+                    <div class="image-label">ANTES</div>
+                    <img class="before-after-image" src="procedimentos/peleantes.jpg" alt="Antes" data-before="procedimentos/peleantes.jpg" data-after="procedimentos/peledepois.jpg">
+                </div>
+                <h3>Limpeza de Pele</h3>
+                <p>Procedimento estético que visa remover impurezas como cravos, milium, espinhas, excesso de oleosidade e células mortas</p>
+                <button class="toggle-btn">Ver Depois</button>
+            </div>
+
+            <div class="before-after-card reveal">
+                <div class="before-after-container">
+                    <div class="image-label">ANTES</div>
+                    <img class="before-after-image" src="https://via.placeholder.com/400x400?text=Antes+4" alt="Antes" data-before="https://via.placeholder.com/400x400?text=Antes+4" data-after="https://via.placeholder.com/400x400?text=Depois+4">
+                </div>
+                <h3>Redensificação Dérmica</h3>
+                <p>Reafirmação e lifting natural do rosto</p>
+                <button class="toggle-btn">Ver Depois</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA PROCEDIMENTOS -->
+    <div id="procedureModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contato">
+        <div class="contact-content">
+            <div class="contact-info reveal">
+                <h2>Entre em Contato</h2>
+                <p>Agende sua consulta e descubra como podemos transformar sua beleza com segurança e propósito.</p>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="detail-content">
+                            <strong>TELEFONE</strong>
+                            <span>(11) 99000-1122</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="detail-content">
+                            <strong>HORÁRIO DE ATENDIMENTO</strong>
+                            <span>Segunda a Sexta - 08:00 a 19:00<br>Sábado - 10:00 a 16h</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="detail-content">
+                            <strong>ENDEREÇO</strong>
+                            <span>Rua Astofo, 222 - Sala 01<br>CEP: 17250-075<br>Bairro: Centro<br>Cidade: Itapecerica da Serra - SP</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="detail-content">
+                            <strong>EMAIL</strong>
+                            <span>dralicecolombo@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form reveal">
+                <div class="form-group">
+                    <br/><br/>
+                    <label>Nome Completo</label>
+                    <input type="text" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" placeholder="(XX) 9XXXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea placeholder="Deixe sua mensagem..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Dra. Alice Colombo | Biomedicina Estética. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Dados dos procedimentos
+        const proceduresData = {
+            botox: {
+                title: "Toxina Botulínica",
+                description: "A toxina botulínica é um procedimento estético que suaviza rugas dinâmicas (aquelas causadas por expressões faciais) através do relaxamento dos músculos responsáveis por essas contrações.",
+                whatIs: "A toxina botulínica é uma proteína que paralisa temporariamente os músculos faciais, suavizando linhas de expressão como testa, entre as sobrancelhas e ao redor dos olhos.",
+                benefits: [
+                    "Suavização de rugas e linhas de expressão",
+                    "Resultado natural e harmônico",
+                    "Procedimento rápido (10-20 minutos)",
+                    "Sem tempo de recuperação",
+                    "Resultados visíveis em 3-7 dias",
+                    "Efeito máximo em 2 semanas"
+                ],
+                areas: "Testa, glabela (entre as sobrancelhas), região periocular (olhos)",
+                duration: "3-5 minutos por área",
+                results: "Os resultados aparecem entre 3-7 dias após o procedimento, com efeito máximo em 2 semanas. A duração típica é de 3-4 meses.",
+                maintenance: "Reaplicação a cada 3-4 meses para manter os resultados."
+            },
+            preenchimento: {
+                title: "Preenchimento Facial",
+                description: "O preenchimento facial restaura volume perdido, define contornos e harmoniza as proporções faciais, proporcionando uma aparência mais jovem e natural.",
+                whatIs: "Procedimento que utiliza substâncias como ácido hialurônico para preencher rugas, adicionar volume aos lábios, melhorar a definição do rosto e restaurar volume perdido com a idade.",
+                benefits: [
+                    "Restauração imediata de volume",
+                    "Harmonização das proporções faciais",
+                    "Resultado natural e harmonioso",
+                    "Sem cirurgia",
+                    "Reversível (ácido hialurônico)",
+                    "Estimula a produção natural de colágeno"
+                ],
+                areas: "Maçãs do rosto, bochechas, lábios, nariz, mandíbula, sulcos nasolabiais, olheiras",
+                duration: "30-60 minutos dependendo das áreas",
+                results: "Resultado imediato, com possível melhora nos dias seguintes. A duração varia de 6-18 meses dependendo do tipo de substância utilizada.",
+                maintenance: "Reaplicação a cada 6-12 meses para manter o resultado."
+            },
+            bioeestimulo: {
+                title: "Bioestímulo de Colágeno",
+                description: "O bioestímulo estimula a produção natural de colágeno do próprio corpo, melhorando a qualidade, firmeza e elasticidade da pele progressivamente.",
+                whatIs: "Procedimento que utiliza bioestimuladores para induzir a produção natural de colágeno pelo corpo, renovando a pele de forma gradual e duradoura.",
+                benefits: [
+                    "Estímulo natural da produção de colágeno",
+                    "Pele mais firme e elástica",
+                    "Melhora progressiva e natural",
+                    "Resultados duradouros",
+                    "Melhora a textura da pele",
+                    "Sem deixar marcas ou cicatrizes"
+                ],
+                areas: "Rosto completo, pescoço, colo, mãos, corpo",
+                duration: "20-40 minutos",
+                results: "Resultados progressivos ao longo de 3-4 meses, com melhora contínua. Os resultados podem durar até 2 anos.",
+                maintenance: "Sessões anuais de manutenção para prolongar os resultados."
+            },
+            redensificacao: {
+                title: "Redensificação Dérmica",
+                description: "A redensificação dérmica utiliza tecnologia inovadora para reafirmar a pele, proporcionando lifting natural e melhora da flacidez sem cirurgia.",
+                whatIs: "Procedimento não invasivo que utiliza tecnologia de radiofrequência ou ultrassom para estimular a contração da pele e produção de colágeno.",
+                benefits: [
+                    "Lifting natural do rosto",
+                    "Reafirmação imediata da pele",
+                    "Melhora da flacidez",
+                    "Sem cirurgia ou incisões",
+                    "Sem tempo de recuperação",
+                    "Resultados progressivos"
+                ],
+                areas: "Rosto, pescoço, mento, região das bochechas",
+                duration: "30-60 minutos",
+                results: "Resultados imediatos com melhora progressiva ao longo de 8-12 semanas. Duração de 18-24 meses.",
+                maintenance: "Sessões anuais recomendadas para manter o efeito de lifting."
+            },
+            mmp: {
+                title: "MMP Capilar",
+                description: "Tratamento especializado que combina técnicas avançadas para restaurar a saúde, brilho e vitalidade dos cabelos de forma intensiva.",
+                whatIs: "MMP significa Mecanoestimulação com Mesoterapia Pistonada. É um protocolo que associa injeções intradérmicas de vitaminas e nutrientes para fortalecer os fios e estimular o crescimento capilar.",
+                benefits: [
+                    "Fortalecimento dos fios",
+                    "Estimulação do crescimento capilar",
+                    "Brilho e vitalidade restaurados",
+                    "Redução de queda",
+                    "Couro cabeludo saudável",
+                    "Cabelos mais macios e sedosos"
+                ],
+                areas: "Couro cabeludo e raiz dos cabelos",
+                duration: "30-45 minutos",
+                results: "Resultados visíveis após 3-4 sessões. Manutenção recomendada a cada 15-30 dias.",
+                maintenance: "Sessões de manutenção mensais para resultados continuos."
+            },
+            corporais: {
+                title: "Tratamentos Corporais",
+                description: "Cuidados especializados para a pele do corpo, incluindo tratamentos para celulite, estrias, flacidez e hidratação profunda.",
+                whatIs: "Procedimentos avançados que tratam diferentes condições da pele do corpo como celulite, estrias, flacidez e ressecamento.",
+                benefits: [
+                    "Melhora da celulite",
+                    "Redução de estrias",
+                    "Pele mais firme e tonificada",
+                    "Hidratação profunda",
+                    "Melhora da textura",
+                    "Corpo mais confiante"
+                ],
+                areas: "Abdômen, coxas, nádegas, braços, região íntima, costas",
+                duration: "45-90 minutos dependendo do procedimento",
+                results: "Resultados progressivos visíveis após 4-6 sessões. Duração varia conforme o tratamento específico.",
+                maintenance: "Sessões de manutenção trimestral para prolongar resultados."
+            }
+        };
+
+        // Função para abrir modal
+        function openModal(procedureKey) {
+            const procedure = proceduresData[procedureKey];
+            const modal = document.getElementById('procedureModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            title.textContent = procedure.title;
+
+            let benefitsHTML = procedure.benefits.map(benefit => `<li>${benefit}</li>`).join('');
+
+            body.innerHTML = `
+                <div class="modal-section">
+                    <h3>O que é?</h3>
+                    <p>${procedure.description}</p>
+                    <p>${procedure.whatIs}</p>
+                </div>
+
+                <div class="modal-section-divider"></div>
+
+                <div class="modal-section">
+                    <h3>Benefícios</h3>
+                    <ul>${benefitsHTML}</ul>
+                </div>
+
+                <div class="modal-section-divider"></div>
+
+                <div class="modal-section">
+                    <h3>Áreas de Tratamento</h3>
+                    <p>${procedure.areas}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Duração do Procedimento</h3>
+                    <p>${procedure.duration}</p>
+                </div>
+
+                <div class="modal-section-divider"></div>
+
+                <div class="modal-section">
+                    <h3>Resultados</h3>
+                    <p>${procedure.results}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Manutenção</h3>
+                    <p>${procedure.maintenance}</p>
+                </div>
+
+                <div class="modal-section-divider"></div>
+
+                <div class="modal-section">
+                    <p style="text-align: center; margin-top: 2rem;">
+                        <strong>Agende sua consulta para saber mais!</strong><br>
+                        <span style="color: var(--text-light);">Entre em contato conosco para avaliar qual procedimento é ideal para você.</span>
+                    </p>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        // Função para fechar modal
+        function closeModal() {
+            document.getElementById('procedureModal').classList.remove('active');
+        }
+
+        // Event listeners para os botões "Saiba Mais"
+        document.querySelectorAll('.card-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const procedureKey = this.getAttribute('data-procedure');
+                openModal(procedureKey);
+            });
+        });
+
+        // Fechar modal ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('procedureModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Before and After Toggle
+        document.querySelectorAll('.before-after-card').forEach(card => {
+            const img = card.querySelector('.before-after-image');
+            const btn = card.querySelector('.toggle-btn');
+            const label = card.querySelector('.image-label');
+            let isAfter = false;
+
+            btn.onclick = () => {
+                isAfter = !isAfter;
+                if (isAfter) {
+                    img.src = img.dataset.after;
+                    btn.textContent = 'Ver Antes';
+                    label.textContent = 'DEPOIS';
+                } else {
+                    img.src = img.dataset.before;
+                    btn.textContent = 'Ver Depois';
+                    label.textContent = 'ANTES';
+                }
+            };
+        });
+    </script>
+
+</body>
+
+</html>
