@@ -191,8 +191,9 @@
             text-align: justify;
         }
 
+        /* ===== PROCEDIMENTOS (ALINHADO) ===== */
         .procedures-section {
-            background: var(--bg-white);
+            background: var(--bg-light); 
             padding: 8rem 2rem;
             text-align: center;
         }
@@ -201,40 +202,58 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .procedures-section > p {
-            color: var(--text-light);
-            margin-bottom: 4rem;
-        }
-
-        .procedures-grid {
+        .procedures-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
             margin: 0 auto;
-            gap: 1.5rem;
-            text-align: left;
         }
 
-        .proc-item {
-            padding: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--primary);
-            font-weight: 500;
+        .proc-card {
+            background: transparent;
+            border: 1px solid var(--border-color);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: .3s;
+            height: 100%;
         }
 
-        .proc-item::before {
-            content: "•";
-            color: var(--accent-color);
-            margin-right: 15px;
-            font-size: 1.8rem;
+        .proc-card h3 {
+            padding: 20px 15px 10px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
 
+        .proc-card p {
+            padding: 0 15px 20px;
+            flex-grow: 1;
+            color: var(--primary);
+        }
+
+        .proc-btn {
+            display: block;
+            margin: 0 20px 20px;
+            padding: 12px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .proc-btn:hover {
+            background: var(--primary);
+        }
+
+        /* ===== RESULTADOS (ALINHADO) ===== */
         .results-section {
+            background: var(--bg-light); 
             padding: 8rem 2rem;
         }
 
@@ -243,25 +262,42 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             margin-bottom: 4rem;
+            color: var(--primary);
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .result-card {
-            background: var(--bg-white);
-            padding-bottom: 0;
+            background: transparent; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .result-card h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--primary);
+            min-height: 3rem; /* Alinha os títulos mesmo com quebra de linha */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .result-card img {
             width: 100%;
+            aspect-ratio: 1/1; /* Mantém as fotos no mesmo formato */
+            object-fit: cover;
             display: block;
             border: 10px solid var(--border-color);
+            margin-bottom: 10px;
         }
 
         .toggle-btn {
@@ -282,6 +318,60 @@
             background: var(--primary);
         }
 
+        /* ===== CONTATO (INPUTS BRANCOS) ===== */
+        .contact-section {
+            background: var(--bg-light); 
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-section p {
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            background: #ffffff; /* Fundo branco solicitado */
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-form button {
+            padding: 1.2rem;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: var(--primary);
+        }
+
         footer {
             background: #000;
             color: #fff;
@@ -290,81 +380,73 @@
             font-size: 0.9rem;
         }
 
+        /* POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #fff;
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
         @media (max-width: 992px) {
             .hero, .about-section { grid-template-columns: 1fr; text-align: center; }
             .hero-content { padding: 2rem; }
             .hero h1 { font-size: 3.5rem; }
             .hero-image { order: -1; }
-            .procedures-grid { grid-template-columns: 1fr; }
+            .procedures-cards { grid-template-columns: 1fr; }
             .about-text p { text-align: center; }
         }
-
-        .contact-section {
-    background: var(--bg-white);
-    padding: 8rem 2rem;
-    text-align: center;
-}
-
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-}
-
-.contact-section p {
-    margin-bottom: 2.5rem;
-    color: var(--primary);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contact-form input {
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    background: var(--bg-light);
-    color: var(--primary);
-    font-size: 0.95rem;
-}
-
-.contact-form button {
-    padding: 1.2rem;
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.contact-form button:hover {
-    background: var(--primary);
-}
-
-.result-card h3 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: var(--primary);
-    font-weight: 600;
-    line-height: 1.3;
-    min-height: 50px; 
-}
+        
     </style>
 </head>
 
 <body>
-
     <header>
         <div class="header-container">
             <div class="logo">
@@ -377,10 +459,10 @@
                 <a href="#resultados">Resultados</a>
                 <a href="#contato">Contato</a>
             </nav>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+             <div class="social-icons">
+    <a href="https://wa.me/55NUMEROAQUI" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/dra.alicecolombo" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
         </div>
     </header>
 
@@ -401,70 +483,126 @@
         </div>
         <div class="about-text">
             <h2>Dra. Alice Colombo</h2>
-            <span class="about-subtitle">CRBM-1: 62472</span>
-             <p>Dra. Alice é biomédica, possui 23 anos e é habilitada em análises clínicas e esteta.  
-Muito além de oferecer tratamentos seguros e eficazes, sua atuação como biomédica esteta baseia-se em sua paixão por contribuir com a autoestima de suas pacientes. 
-Em seu trabalho, oferece um universo de cuidados estéticos avançados de harmonização facial, gerenciamento de pele e tratamentos inovadores para rejuvenescimento.</p>
+            <span class="about-subtitle">CRBM/SP: 62472</span>
+            <p>Dra. Alice é biomédica, possui 23 anos e é habilitada em análises clínicas e esteta.</p>
+            <p>Muito além de oferecer tratamentos seguros e eficazes, sua atuação como biomédica esteta baseia-se em sua paixão por contribuir com a autoestima de suas pacientes.</p>
+            <p>Em seu trabalho, oferece um universo de cuidados estéticos avançados de harmonização facial, gerenciamento de pele e tratamentos inovadores para rejuvenescimento.</p>
+        </div>
     </section>
 
     <section class="procedures-section" id="procedimentos">
         <h2>Procedimentos Realizados</h2>
-        
-        <div class="procedures-grid">
-            <div class="proc-item">Gerenciamento de pele</div>
-            <div class="proc-item">Intradermoterapia</div>
-            <div class="proc-item">Preenchimentos com AH</div>
-            <div class="proc-item">Bioestimuladores de Colágeno</div>
-            <div class="proc-item">Limpeza de Pele</div>
-            <div class="proc-item">Microagulhamento</div>
-            <div class="proc-item">Toxina Botulínica</div>
-            <div class="proc-item">Peelings Químicos</div>
-            <div class="proc-item">PEIM</div>
+        <div class="procedures-cards">
+            <div class="proc-card">
+                <h3>Gerenciamento de Pele</h3>
+                <p>Protocolos personalizados para manter a saúde e o viço da derme.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Gerenciamento de Pele','Tratamento completo e personalizado focado na saúde, hidratação e renovação celular da pele.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Intradermoterapia</h3>
+                <p>Aplicação de ativos diretamente na camada profunda da pele.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Intradermoterapia','Técnica que utiliza microinjeções de vitaminas, enzimas e ativos para tratar queixas específicas como gordura localizada ou flacidez.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Preenchimentos com AH</h3>
+                <p>Harmonização e volume com Ácido Hialurônico.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Preenchimentos com AH','Uso de ácido hialurônico para devolver volume, preencher sulcos (como o bigode chinês) e harmonizar contornos faciais.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Bioestimuladores de Colágeno</h3>
+                <p>Tratamento para firmeza e combate à flacidez.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Bioestimuladores de Colágeno','Substâncias que estimulam o próprio corpo a produzir colágeno, melhorando a espessura e a firmeza da pele de forma natural.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Limpeza de Pele</h3>
+                <p>Remoção de impurezas e desobstrução dos poros.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Limpeza de Pele','Procedimento profundo para extração de comedões, remoção de células mortas e higienização completa do rosto.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Microagulhamento</h3>
+                <p>Indução de colágeno para cicatrizes e textura.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Microagulhamento','Uso de microagulhas para criar canais na pele que estimulam a regeneração natural e a absorção de ativos clareadores e rejuvenescedores.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Toxina Botulínica</h3>
+                <p>Prevenção e suavização de rugas de expressão.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Toxina Botulínica','Famoso Botox, indicado para relaxar a musculatura e suavizar rugas na testa, glabela (entre sobrancelhas) e pés de galinha.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>Peelings Químicos</h3>
+                <p>Renovação celular e tratamento de manchas.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Peelings Químicos','Aplicação de ácidos que promovem a descamação controlada da pele, tratando manchas, acne e linhas finas.')">Saiba mais</a>
+            </div>
+            <div class="proc-card">
+                <h3>PEIM</h3>
+                <p>Procedimento Estético Injetável para Microvasos.</p>
+                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('PEIM','Tratamento focado na eliminação dos vasinhos (telangiectasias) através da aplicação de substância esclerosante diretamente nos vasos.')">Saiba mais</a>
+            </div>
         </div>
     </section>
 
-    <section class="results-section" id="resultados">
-    <h2>Resultados Reais</h2>
-
-    <div class="results-grid">
-
-        <div class="result-card">
-            <h3>Celulite</h3>
-            <img src="procedimentos/celuliteantes.jpg" id="res1">
-            <button class="toggle-btn" onclick="toggle('res1', 'procedimentos/celuliteantes.jpg', 'procedimentos/celulitedepois.jpg')">
-                Ver Depois
-            </button>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">X</span>
+            <h2 id="modal-title"></h2>
+            <br>
+            <p id="modal-text"></p>
         </div>
-
-        <div class="result-card">
-            <h3>Estrias</h3>
-            <img src="procedimentos/estriasantes.jpg" id="res2">
-            <button class="toggle-btn" onclick="toggle('res2', 'procedimentos/estriasantes.jpg', 'procedimentos/estriasdepois.jpg')">
-                Ver Depois
-            </button>
-        </div>
-
-        <div class="result-card">
-            <h3>Limpeza de Pele</h3>
-            <img src="procedimentos/peleantes.jpg" id="res3">
-            <button class="toggle-btn" onclick="toggle('res3', 'procedimentos/peleantes.jpg', 'procedimentos/peledepois.jpg')">
-                Ver Depois
-            </button>
-        </div>
-
-        <!-- NOVO CARD -->
-        <div class="result-card">
-           <h3>Hipercromia Pós-Inflamatória<br>e Rosácea</h3>
-            <img src="procedimentos/rosaceaantes.jpg" id="res4">
-            <button class="toggle-btn" onclick="toggle('res4', 'procedimentos/rosaceaantes.jpg', 'procedimentos/rosaceadepois.jpg')">
-                Ver Depois
-            </button>
-        </div>
-
     </div>
-</section>
+
+    <section class="results-section" id="resultados">
+        <h2>Resultados Reais</h2>
+        <div class="results-grid">
+            <div class="result-card">
+                <h3>Celulite</h3>
+                <img src="procedimentos/celuliteantes.jpg" id="res1">
+                <button class="toggle-btn" onclick="toggle('res1', 'procedimentos/celuliteantes.jpg', 'procedimentos/celulitedepois.jpg')">Ver Depois</button>
+            </div>
+            <div class="result-card">
+                <h3>Estrias</h3>
+                <img src="procedimentos/estriasantes.jpg" id="res2">
+                <button class="toggle-btn" onclick="toggle('res2', 'procedimentos/estriasantes.jpg', 'procedimentos/estriasdepois.jpg')">Ver Depois</button>
+            </div>
+            <div class="result-card">
+                <h3>Limpeza de Pele</h3>
+                <img src="procedimentos/peleantes.jpg" id="res3">
+                <button class="toggle-btn" onclick="toggle('res3', 'procedimentos/peleantes.jpg', 'procedimentos/peledepois.jpg')">Ver Depois</button>
+            </div>
+            <div class="result-card">
+                <h3>Hipercromia Pós-Inflamatória<br>e Rosácea</h3>
+                <img src="procedimentos/rosaceaantes.jpg" id="res4">
+                <button class="toggle-btn" onclick="toggle('res4', 'procedimentos/rosaceaantes.jpg', 'procedimentos/rosaceadepois.jpg')">Ver Depois</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+        <div class="contact-container">
+            <h2>Tire suas dúvidas ou solicite sua avaliação</h2>
+            <p>Preencha o formulário abaixo que entraremos em contato com detalhes</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="text" placeholder="Whatsapp">
+                <input type="text" placeholder="Instagram">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Dra. Alice Colombo | Biomedicina Estética. Todos os direitos reservados.</p>
+    </footer>
 
     <script>
+        function openModal(title, text){
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-title").innerText = title;
+            document.getElementById("modal-text").innerText = text;
+        }
+        function closeModal(){
+            document.getElementById("modal").style.display = "none";
+        }
         function toggle(id, before, after) {
             const img = document.getElementById(id);
             const btn = img.nextElementSibling;
@@ -477,26 +615,5 @@ Em seu trabalho, oferece um universo de cuidados estéticos avançados de harmon
             }
         }
     </script>
-
-    <section class="contact-section" id="contato">
-    <div class="contact-container">
-        <h2>Tire suas dúvidas ou solicite sua avaliação</h2>
-        <p>Preencha o formulário abaixo que entraremos em contato com detalhes</p>
-
-        <form class="contact-form">
-            <input type="text" placeholder="Nome" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="text" placeholder="Whatsapp">
-            <input type="text" placeholder="Instagram">
-
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-</section>
-
-    <footer>
-        <p>&copy; 2026 Dra. Alice Colombo | Biomedicina Estética. Todos os direitos reservados.</p>
-    </footer>
-
 </body>
 </html>
