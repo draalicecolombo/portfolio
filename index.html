@@ -191,7 +191,7 @@
             text-align: justify;
         }
 
-        /* ===== PROCEDIMENTOS (ALINHADO) ===== */
+        /* ===== PROCEDIMENTOS ===== */
         .procedures-section {
             background: var(--bg-light); 
             padding: 8rem 2rem;
@@ -245,13 +245,14 @@
             font-weight: 600;
             font-size: 0.8rem;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .proc-btn:hover {
             background: var(--primary);
         }
 
-        /* ===== RESULTADOS (ALINHADO) ===== */
+        /* ===== RESULTADOS ===== */
         .results-section {
             background: var(--bg-light); 
             padding: 8rem 2rem;
@@ -267,17 +268,19 @@
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
+            align-items: stretch; 
         }
 
         .result-card {
             background: transparent; 
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: space-between; 
+            height: 100%;
         }
 
         .result-card h3 {
@@ -285,19 +288,19 @@
             margin-bottom: 15px;
             font-size: 1.1rem;
             color: var(--primary);
-            min-height: 3rem; /* Alinha os títulos mesmo com quebra de linha */
+            min-height: 3.5rem; 
             display: flex;
             align-items: center;
             justify-content: center;
+            line-height: 1.2;
         }
 
         .result-card img {
             width: 100%;
-            aspect-ratio: 1/1; /* Mantém as fotos no mesmo formato */
+            aspect-ratio: 1/1; 
             object-fit: cover;
-            display: block;
             border: 10px solid var(--border-color);
-            margin-bottom: 10px;
+            margin-bottom: 0; 
         }
 
         .toggle-btn {
@@ -308,17 +311,16 @@
             border: none;
             cursor: pointer;
             font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
             transition: 0.3s;
+            margin-top: auto;
         }
 
         .toggle-btn:hover {
             background: var(--primary);
         }
 
-        /* ===== CONTATO (INPUTS BRANCOS) ===== */
+        /* ===== CONTATO ===== */
         .contact-section {
             background: var(--bg-light); 
             padding: 8rem 2rem;
@@ -351,7 +353,7 @@
         .contact-form input {
             padding: 1rem;
             border: 1px solid var(--border-color);
-            background: #ffffff; /* Fundo branco solicitado */
+            background: #ffffff; 
             color: var(--primary);
             font-size: 0.95rem;
             font-family: 'Montserrat', sans-serif;
@@ -380,7 +382,7 @@
             font-size: 0.9rem;
         }
 
-        /* POPUP */
+        /* POPUP ATUALIZADO */
         .modal {
             display: none;
             position: fixed;
@@ -388,27 +390,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(48, 34, 26, 0.95);
             justify-content: center;
             align-items: center;
             z-index: 2000;
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
             background: white;
-            padding: 30px;
-            max-width: 500px;
-            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: left;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .close {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 15px;
+            right: 20px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
         }
+
+        .modal-label {
+            display: block;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-info-text {
+            color: var(--primary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
         .social-icons {
             display: flex;
             gap: 1rem;
@@ -460,9 +485,9 @@
                 <a href="#contato">Contato</a>
             </nav>
              <div class="social-icons">
-    <a href="https://wa.me/55NUMEROAQUI" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/dra.alicecolombo" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
+                <a href="https://wa.me/55NUMEROAQUI" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/dra.alicecolombo" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </header>
 
@@ -496,47 +521,74 @@
             <div class="proc-card">
                 <h3>Gerenciamento de Pele</h3>
                 <p>Protocolos personalizados para manter a saúde e o viço da derme.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Gerenciamento de Pele','Tratamento completo e personalizado focado na saúde, hidratação e renovação celular da pele.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Gerenciamento de Pele', 
+                    'Planejamento personalizado para regenerar a pele, tratando poros, viço e hidratação.', 
+                    'Peles desidratadas, com textura irregular ou que buscam prevenção.', 
+                    'Luminosidade imediata, controle de oleosidade e barreira cutânea fortalecida.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Intradermoterapia</h3>
                 <p>Aplicação de ativos diretamente na camada profunda da pele.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Intradermoterapia','Técnica que utiliza microinjeções de vitaminas, enzimas e ativos para tratar queixas específicas como gordura localizada ou flacidez.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Intradermoterapia', 
+                    'Microinjeções de mesclas (enzimas e vitaminas) direto no alvo do tratamento.', 
+                    'Gordura localizada, celulite, flacidez e fortalecimento capilar.', 
+                    'Resultados focados na área tratada e redução eficaz de medidas.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Preenchimentos com AH</h3>
                 <p>Harmonização e volume com Ácido Hialurônico.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Preenchimentos com AH','Uso de ácido hialurônico para devolver volume, preencher sulcos (como o bigode chinês) e harmonizar contornos faciais.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Preenchimentos com AH', 
+                    'Uso de Ácido Hialurônico para sustentar tecidos e devolver volumes perdidos.', 
+                    'Lábios, olheiras, maçãs do rosto e bigode chinês.', 
+                    'Harmonização natural, contornos definidos e hidratação da região.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Bioestimuladores de Colágeno</h3>
                 <p>Tratamento para firmeza e combate à flacidez.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Bioestimuladores de Colágeno','Substâncias que estimulam o próprio corpo a produzir colágeno, melhorando a espessura e a firmeza da pele de forma natural.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Bioestimuladores de Colágeno', 
+                    'Injeção de substâncias que fazem seu próprio corpo produzir colágeno novo.', 
+                    'Flacidez facial e corporal, perda de sustentação.', 
+                    'Pele mais firme, efeito de rejuvenescimento gradual e longa duração.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Limpeza de Pele</h3>
                 <p>Remoção de impurezas e desobstrução dos poros.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Limpeza de Pele','Procedimento profundo para extração de comedões, remoção de células mortas e higienização completa do rosto.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Limpeza de Pele', 
+                    'Extração técnica e profunda de impurezas, cravos e células mortas.', 
+                    'Todos os tipos de pele que precisam de renovação e higiene.', 
+                    'Desobstrução de poros, prevenção de acne e melhor absorção de produtos.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Microagulhamento</h3>
                 <p>Indução de colágeno para cicatrizes e textura.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Microagulhamento','Uso de microagulhas para criar canais na pele que estimulam a regeneração natural e a absorção de ativos clareadores e rejuvenescedores.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Microagulhamento', 
+                    'Uso de microagulhas para estimular a regeneração e a produção de colágeno.', 
+                    'Cicatrizes de acne, manchas (melasma) e poros abertos.', 
+                    'Melhora global da textura, clareamento e rejuvenescimento.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Toxina Botulínica</h3>
                 <p>Prevenção e suavização de rugas de expressão.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Toxina Botulínica','Famoso Botox, indicado para relaxar a musculatura e suavizar rugas na testa, glabela (entre sobrancelhas) e pés de galinha.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Toxina Botulínica', 
+                    'Relaxamento muscular estratégico para suavizar linhas de movimento.', 
+                    'Testa, entre as sobrancelhas e pés de galinha.', 
+                    'Aspecto descansado, prevenção de rugas fixas e rejuvenescimento natural.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>Peelings Químicos</h3>
                 <p>Renovação celular e tratamento de manchas.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('Peelings Químicos','Aplicação de ácidos que promovem a descamação controlada da pele, tratando manchas, acne e linhas finas.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('Peelings Químicos', 
+                    'Aplicação de ácidos para promover a descamação controlada da pele antiga.', 
+                    'Manchas de sol, acne ativa e envelhecimento precoce.', 
+                    'Clareamento de manchas, pele mais macia e controle de oleosidade.')">Detalhes</a>
             </div>
             <div class="proc-card">
                 <h3>PEIM</h3>
                 <p>Procedimento Estético Injetável para Microvasos.</p>
-                <a href="javascript:void(0)" class="proc-btn" onclick="openModal('PEIM','Tratamento focado na eliminação dos vasinhos (telangiectasias) através da aplicação de substância esclerosante diretamente nos vasos.')">Saiba mais</a>
+                <a class="proc-btn" onclick="openModal('PEIM', 
+                    'Aplicação de solução esclerosante em microvasos sanguíneos (vasinhos).', 
+                    'Vasinhos aparentes (telangiectasias) nas pernas.', 
+                    'Eliminação estética de microvasos e melhora visual das pernas.')">Detalhes</a>
             </div>
         </div>
     </section>
@@ -544,9 +596,16 @@
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">X</span>
-            <h2 id="modal-title"></h2>
-            <br>
-            <p id="modal-text"></p>
+            <h2 id="modal-title" style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2rem; margin-bottom: 10px;"></h2>
+            
+            <span class="modal-label">O que é?</span>
+            <p id="modal-desc" class="modal-info-text"></p>
+
+            <span class="modal-label">Para quem é indicado?</span>
+            <p id="modal-indic" class="modal-info-text"></p>
+
+            <span class="modal-label">Principais Benefícios</span>
+            <p id="modal-benef" class="modal-info-text"></p>
         </div>
     </div>
 
@@ -569,7 +628,7 @@
                 <button class="toggle-btn" onclick="toggle('res3', 'procedimentos/peleantes.jpg', 'procedimentos/peledepois.jpg')">Ver Depois</button>
             </div>
             <div class="result-card">
-                <h3>Hipercromia Pós-Inflamatória<br>e Rosácea</h3>
+                <h3>Hipercromia e Rosácea</h3>
                 <img src="procedimentos/rosaceaantes.jpg" id="res4">
                 <button class="toggle-btn" onclick="toggle('res4', 'procedimentos/rosaceaantes.jpg', 'procedimentos/rosaceadepois.jpg')">Ver Depois</button>
             </div>
@@ -595,14 +654,18 @@
     </footer>
 
     <script>
-        function openModal(title, text){
+        function openModal(title, desc, indic, benef){
             document.getElementById("modal").style.display = "flex";
             document.getElementById("modal-title").innerText = title;
-            document.getElementById("modal-text").innerText = text;
+            document.getElementById("modal-desc").innerText = desc;
+            document.getElementById("modal-indic").innerText = indic;
+            document.getElementById("modal-benef").innerText = benef;
         }
+
         function closeModal(){
             document.getElementById("modal").style.display = "none";
         }
+
         function toggle(id, before, after) {
             const img = document.getElementById(id);
             const btn = img.nextElementSibling;
